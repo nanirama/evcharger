@@ -18,7 +18,7 @@ const FeaturedProducts = () => {
                     slug
                     contentful_id
                     heroImage {
-                    gatsbyImage(layout: FIXED, width: 400, height: 500)
+                    gatsbyImage(layout: FULL_WIDTH, width: 400, height: 500)
                     }
                     author {
                     name

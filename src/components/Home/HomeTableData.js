@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
-
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const HomeTableData = () => {
     const { tableData } = useStaticQuery(
         graphql`
@@ -23,6 +23,7 @@ const HomeTableData = () => {
                     file {
                         url
                     }
+                    gatsbyImage(layout: FIXED, width: 45, height: 45)
                     }
                 }
                 }
@@ -106,7 +107,8 @@ const HomeTableData = () => {
                                             <td class="py-4 px-2 w-22">
                                                 <div className="flex items-center">
                                                     <div className="h-10 w-10 flex-shrink-0">
-                                                    <img className="h-10 w-10 rounded-full" src={node.logo.file.url} alt={node.name} />
+                                                    <GatsbyImage image={getImage(node.logo)} alt={node.name} className='h-10 w-10 rounded-full' />
+                                                    {/* <img className="h-10 w-10 rounded-full" src={node.logo.file.url} alt={node.name} /> */}
                                                     </div>
                                                     <div className="ml-4">
                                                     <div className="font-medium text-gray-900">{node.name}</div>
